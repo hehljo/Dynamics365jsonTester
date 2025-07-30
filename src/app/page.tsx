@@ -1,12 +1,24 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+import dynamic from "next/dynamic";
 import { useToast } from "@/hooks/use-toast";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import InspectionForm from "@/components/InspectionForm";
 import { Loader2, UploadCloud } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { defaultInspection } from "@/lib/default-inspection";
+
+// Dynamically import InspectionForm with SSR turned off
+const InspectionForm = dynamic(() => import("@/components/InspectionForm"), {
+  ssr: false,
+  loading: () => (
+    <div className="flex flex-col items-center justify-center h-96">
+      <Loader2 className="h-12 w-12 animate-spin text-primary" />
+      <p className="mt-4 text-muted-foreground">Loading form...</p>
+    </div>
+  ),
+});
 
 // Basic schema validation
 const validateSchema = (json: any) => {
@@ -46,6 +58,10 @@ export default function Home() {
   const [formKey, setFormKey] = useState<number>(Date.now());
   const { toast } = useToast();
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    setInspectionJson(defaultInspection);
+  }, []);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -88,6 +104,7 @@ export default function Home() {
         if (error instanceof Error) {
           errorMessage = error.message;
         }
+        // If it's not our custom validation error, show a generic one.
         if (errorMessage !== "Schema validation failed.") {
           toast({
             variant: "destructive",
@@ -95,7 +112,8 @@ export default function Home() {
             description: `Failed to parse JSON file. Error: ${errorMessage}`,
           });
         }
-        setInspectionJson(null);
+        // Restore default inspection on error
+        setInspectionJson(defaultInspection); 
       } finally {
         setIsLoading(false);
       }
@@ -107,8 +125,11 @@ export default function Home() {
         description: "Could not read the selected file.",
       });
       setIsLoading(false);
+      setInspectionJson(defaultInspection);
     }
     reader.readAsText(file);
+
+    // Reset file input so the same file can be re-uploaded
     event.target.value = '';
   };
 
@@ -132,7 +153,7 @@ export default function Home() {
              <div className="text-center h-96 flex flex-col justify-center items-center border-2 border-dashed rounded-lg">
                 <UploadCloud className="h-16 w-16 text-muted-foreground" />
                 <h2 className="mt-6 text-xl font-semibold">Start by uploading an inspection file</h2>
-                <p className="mt-2 text-muted-foreground">Upload your Dynamics 365 inspection JSON to preview and test it.</p>
+                <p className="mt-2 text-muted-foreground">Or view the sample inspection already loaded. Upload your Dynamics 365 inspection JSON to preview and test it.</p>
                 <Button onClick={handleUploadClick} className="mt-6">
                     Upload JSON File
                 </Button>
