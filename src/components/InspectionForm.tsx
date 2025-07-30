@@ -28,7 +28,11 @@ export default function InspectionForm({ inspectionJson }: InspectionFormProps) 
         "--sjs-border-default": "hsl(var(--border))",
         "--sjs-editor-background": "hsl(var(--card))",
         "--sjs-font-size": "1rem",
-        "--sjs-font-family": "Inter, sans-serif"
+        "--sjs-font-family": "Inter, sans-serif",
+        "--sjs-question-background": "hsl(var(--card))",
+        "--sjs-background-dim": "hsl(var(--card))",
+        "--sjs-questionpanel-backcolor": "hsl(var(--card))",
+        "--sjs-panel-background": "hsl(var(--card))",
       },
       isPanelless: false
     });
@@ -79,7 +83,7 @@ export default function InspectionForm({ inspectionJson }: InspectionFormProps) 
   }
 
   return (
-    <Card className="shadow-lg animate-in fade-in-50">
+    <Card className="shadow-lg animate-in fade-in-50 bg-card">
       <CardContent className="p-0 sm:p-2 md:p-4">
         <Survey model={survey} />
       </CardContent>
