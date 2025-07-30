@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { FileUp, TestTubeDiagonal } from "lucide-react";
 
@@ -21,7 +21,7 @@ export default function Header({ onFileChange, fileInputRef }: HeaderProps) {
           <div className="flex items-center gap-2">
             <TestTubeDiagonal className="h-8 w-8 text-primary" />
             <h1 className="text-2xl font-bold font-headline text-foreground">
-              Inspection Tester
+              Inspektions-Tester
             </h1>
           </div>
           <div className="flex items-center gap-2">
@@ -34,7 +34,7 @@ export default function Header({ onFileChange, fileInputRef }: HeaderProps) {
             />
             <Button onClick={handleUploadClick} variant="default">
               <FileUp className="mr-2 h-4 w-4" />
-              Upload New Inspection
+              Vorlage hochladen
             </Button>
           </div>
         </div>

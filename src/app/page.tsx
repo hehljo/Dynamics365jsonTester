@@ -1,13 +1,12 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import dynamic from "next/dynamic";
 import { useToast } from "@/hooks/use-toast";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Loader2, UploadCloud } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { defaultInspection } from "@/lib/default-inspection";
 
 // Dynamically import InspectionForm with SSR turned off
 const InspectionForm = dynamic(() => import("@/components/InspectionForm"), {
@@ -15,7 +14,7 @@ const InspectionForm = dynamic(() => import("@/components/InspectionForm"), {
   loading: () => (
     <div className="flex flex-col items-center justify-center h-96">
       <Loader2 className="h-12 w-12 animate-spin text-primary" />
-      <p className="mt-4 text-muted-foreground">Loading form...</p>
+      <p className="mt-4 text-muted-foreground">Formular wird geladen...</p>
     </div>
   ),
 });
@@ -24,26 +23,26 @@ const InspectionForm = dynamic(() => import("@/components/InspectionForm"), {
 const validateSchema = (json: any) => {
   const errors: string[] = [];
   if (!json.title || typeof json.title !== 'string') {
-    errors.push("Missing or invalid 'title' (must be a string).");
+    errors.push("Fehlender oder ungültiger 'title' (muss ein String sein).");
   }
   if (!Array.isArray(json.pages)) {
-    errors.push("Missing or invalid 'pages' (must be an array).");
+    errors.push("Fehlende oder ungültige 'pages' (muss ein Array sein).");
     return errors;
   }
   if (json.pages.length === 0) {
-    errors.push("'pages' array cannot be empty.");
+    errors.push("'pages'-Array darf nicht leer sein.");
   }
   json.pages.forEach((page: any, pIndex: number) => {
     if (!Array.isArray(page.elements)) {
-      errors.push(`Page ${pIndex + 1} is missing 'elements' array.`);
+      errors.push(`Seite ${pIndex + 1} fehlt das 'elements'-Array.`);
       return;
     }
     page.elements.forEach((el: any, eIndex: number) => {
       if (!el.type || typeof el.type !== 'string') {
-        errors.push(`Element ${eIndex + 1} in Page ${pIndex + 1} is missing a 'type'.`);
+        errors.push(`Element ${eIndex + 1} auf Seite ${pIndex + 1} fehlt ein 'type'.`);
       }
       if (!el.name || typeof el.name !== 'string') {
-        errors.push(`Element ${eIndex + 1} in Page ${pIndex + 1} is missing a 'name'.`);
+        errors.push(`Element ${eIndex + 1} auf Seite ${pIndex + 1} fehlt ein 'name'.`);
       }
     });
   });
@@ -59,10 +58,6 @@ export default function Home() {
   const { toast } = useToast();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  useEffect(() => {
-    setInspectionJson(defaultInspection);
-  }, []);
-
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (!file) return;
@@ -74,7 +69,7 @@ export default function Home() {
       try {
         const text = e.target?.result;
         if (typeof text !== 'string') {
-          throw new Error("File content is not a string.");
+          throw new Error("Der Dateiinhalt ist kein String.");
         }
         const json = JSON.parse(text);
 
@@ -83,37 +78,35 @@ export default function Home() {
         if (validationErrors.length > 0) {
             toast({
               variant: "destructive",
-              title: "Invalid Template Structure",
+              title: "Ungültige Vorlagenstruktur",
               description: (
                 <ul className="list-disc list-inside">
                   {validationErrors.map((err, i) => <li key={i}>{err}</li>)}
                 </ul>
               )
             });
-            throw new Error("Schema validation failed.");
+            throw new Error("Schema-Validierung fehlgeschlagen.");
         }
 
         setInspectionJson(json);
         setFormKey(Date.now());
         toast({
-          title: "Success",
-          description: "Inspection template loaded successfully.",
+          title: "Erfolg",
+          description: "Inspektionsvorlage erfolgreich geladen.",
         });
       } catch (error) {
-        let errorMessage = "An unknown error occurred.";
+        let errorMessage = "Ein unbekannter Fehler ist aufgetreten.";
         if (error instanceof Error) {
           errorMessage = error.message;
         }
-        // If it's not our custom validation error, show a generic one.
-        if (errorMessage !== "Schema validation failed.") {
+        if (errorMessage !== "Schema-Validierung fehlgeschlagen.") {
           toast({
             variant: "destructive",
-            title: "Error loading file",
-            description: `Failed to parse JSON file. Error: ${errorMessage}`,
+            title: "Fehler beim Laden der Datei",
+            description: `JSON-Datei konnte nicht verarbeitet werden. Fehler: ${errorMessage}`,
           });
         }
-        // Restore default inspection on error
-        setInspectionJson(defaultInspection); 
+        setInspectionJson(null);
       } finally {
         setIsLoading(false);
       }
@@ -121,15 +114,14 @@ export default function Home() {
     reader.onerror = () => {
       toast({
         variant: "destructive",
-        title: "Error reading file",
-        description: "Could not read the selected file.",
+        title: "Fehler beim Lesen der Datei",
+        description: "Die ausgewählte Datei konnte nicht gelesen werden.",
       });
       setIsLoading(false);
-      setInspectionJson(defaultInspection);
+      setInspectionJson(null);
     }
     reader.readAsText(file);
 
-    // Reset file input so the same file can be re-uploaded
     event.target.value = '';
   };
 
@@ -145,17 +137,17 @@ export default function Home() {
           {isLoading ? (
             <div className="flex flex-col items-center justify-center h-96">
               <Loader2 className="h-12 w-12 animate-spin text-primary" />
-              <p className="mt-4 text-muted-foreground">Loading and validating inspection...</p>
+              <p className="mt-4 text-muted-foreground">Inspektion wird geladen und validiert...</p>
             </div>
           ) : inspectionJson ? (
             <InspectionForm key={formKey} inspectionJson={inspectionJson} />
           ) : (
-             <div className="text-center h-96 flex flex-col justify-center items-center border-2 border-dashed rounded-lg">
+             <div className="text-center h-96 flex flex-col justify-center items-center border-2 border-dashed rounded-lg p-6">
                 <UploadCloud className="h-16 w-16 text-muted-foreground" />
-                <h2 className="mt-6 text-xl font-semibold">Start by uploading an inspection file</h2>
-                <p className="mt-2 text-muted-foreground">Or view the sample inspection already loaded. Upload your Dynamics 365 inspection JSON to preview and test it.</p>
+                <h2 className="mt-6 text-xl font-semibold">Beginnen Sie mit dem Hochladen einer Inspektionsdatei</h2>
+                <p className="mt-2 text-muted-foreground">Laden Sie Ihre Dynamics 365 Inspektions-JSON hoch, um eine Vorschau anzuzeigen und sie zu testen.</p>
                 <Button onClick={handleUploadClick} className="mt-6">
-                    Upload JSON File
+                    JSON-Datei hochladen
                 </Button>
             </div>
           )}

@@ -32,6 +32,7 @@ export default function InspectionForm({ inspectionJson }: InspectionFormProps) 
       },
       isPanelless: false
     });
+    surveyModel.locale = "de";
     return surveyModel;
   }, [inspectionJson]);
 
@@ -54,15 +55,15 @@ export default function InspectionForm({ inspectionJson }: InspectionFormProps) 
             <div>
               <CardTitle className="flex items-center gap-2">
                 <PartyPopper className="text-accent" />
-                Inspection Complete!
+                Inspektion abgeschlossen!
               </CardTitle>
               <CardDescription>
-                Here are the results in JSON format.
+                Hier sind die Ergebnisse im JSON-Format.
               </CardDescription>
             </div>
             <Button variant="outline" onClick={restartSurvey}>
               <RotateCcw className="mr-2 h-4 w-4" />
-              Take Again
+              Erneut durchführen
             </Button>
           </div>
         </CardHeader>
