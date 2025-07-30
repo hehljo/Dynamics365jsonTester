@@ -1,0 +1,120 @@
+{
+  "showQuestionNumbers": "off",
+  "defaultLocale": "1031",
+  "IsRequiredToAnswer": true,
+  "SchemaError": [],
+  "InternalVersion": 1,
+  "title": "IHB 010 / Ersatz-eIHB 01 mtl.",
+  "description": "010/Ersatz-eIHB 01 mtl.",
+  "pages": [
+    {
+      "name": "Seite1",
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "Frage1",
+          "title": "Inspektion / Prüfung / Instandhaltung",
+          "isRequired": true,
+          "choices": [
+            "Arbeiten laut Anlagen-/Gerätecheckliste durchgeführt und protokolliert."
+          ]
+        },
+        {
+          "type": "text",
+          "name": "Frage2",
+          "title": "Allgemeines",
+          "isRequired": true,
+          "readOnly": true
+        },
+        {
+          "type": "dropdown",
+          "name": "Frage3",
+          "title": "Festgestellte Beschädigungen oder Mängel",
+          "isRequired": true,
+          "choices": [
+            "Ja",
+            "Nein"
+          ]
+        },
+        {
+          "type": "dropdown",
+          "name": "Frage4",
+          "visibleIf": "{Frage3} = 'Ja'",
+          "title": "ist Sicherheitsrelevant?",
+          "isRequired": false,
+          "requiredIf": "{Frage3} = 'Ja'",
+          "choices": [
+            "Ja",
+            "Nein"
+          ]
+        },
+        {
+          "type": "text",
+          "name": "Frage5",
+          "visibleIf": "{Frage4} = 'Ja'",
+          "title": "Erforderliche Restarbeiten",
+          "isRequired": false,
+          "requiredIf": "{Frage4} = 'Ja'",
+          "inputType": "multiline"
+        },
+        {
+          "type": "dropdown",
+          "name": "Frage6",
+          "title": "Beseitigte Beschädigungen oder Mängel",
+          "isRequired": true,
+          "choices": [
+            "Ja",
+            "Nein"
+          ]
+        },
+        {
+          "type": "text",
+          "name": "Frage7",
+          "visibleIf": "{Frage6} = 'Ja'",
+          "title": "Beseitigte Beschädigungen oder Mängel",
+          "isRequired": false,
+          "requiredIf": "{Frage6} = 'Ja'",
+          "inputType": "multiline"
+        },
+        {
+          "type": "dropdown",
+          "name": "Frage8",
+          "title": "Allgemeiner Zustand der Anlage",
+          "isRequired": true,
+          "choices": [
+            "Sehr gut (keine Mängel, voll funktionsfähig, sauber)",
+            "Gut (nur geringe, nicht sicherheitsrelevante Gebrauchsspuren)",
+            "Befriedigend (leichte Mängel, Funktion nicht beeinträchtigt)",
+            "Ausreichend (deutliche Abnutzung, aber Funktion noch gegeben)",
+            "Mangelhaft (reparaturbedürftig, Funktion eingeschränkt, Mängel können Sicherheit beeinflussen)",
+            "Außer Betrieb / Großmängel (Funktion stark eingeschränkt bzw. nicht mehr gegeben, sofortige Maßnahme erforderlich)"
+          ]
+        },
+        {
+          "type": "text",
+          "name": "Frage9",
+          "visibleIf": "{Frage8} = 'Mangelhaft (reparaturbedürftig, Funktion eingeschränkt, Mängel können Sicherheit beeinflussen)'",
+          "title": "Was beeinflusst die Sicherheit in Kundenverantwortung (z.B. Haltelinie nicht Sichtbar, Sicht auf Signale eingeschränkt,)",
+          "isRequired": true
+        },
+        {
+          "type": "dropdown",
+          "name": "Frage10",
+          "visibleIf": "{Frage8} = 'Außer Betrieb / Großmängel (Funktion stark eingeschränkt bzw. nicht mehr gegeben, sofortige Maßnahme erforderlich)'",
+          "title": "An den Kunden gemeldet",
+          "isRequired": true,
+          "choices": [
+            "JA"
+          ]
+        },
+        {
+          "type": "text",
+          "name": "Frage11",
+          "visibleIf": "{Frage10} = 'JA'",
+          "title": "Weitermeldung an ",
+          "isRequired": true
+        }
+      ]
+    }
+  ]
+}

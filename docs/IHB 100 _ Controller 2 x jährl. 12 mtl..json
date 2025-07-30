@@ -1,0 +1,344 @@
+{
+  "showQuestionNumbers": "off",
+  "defaultLocale": "1031",
+  "IsRequiredToAnswer": true,
+  "SchemaError": [],
+  "InternalVersion": 1,
+  "title": "IHB 100 / Controller 2 x jährl. 12 mtl.",
+  "description": "100/Controller 2 x jährl. 12 mtl.",
+  "pages": [
+    {
+      "name": "Seite1",
+      "elements": [
+        {
+          "type": "text",
+          "name": "Frage1",
+          "title": "Allgemeine Geräteangaben",
+          "isRequired": false,
+          "readOnly": true
+        },
+        {
+          "type": "dropdown",
+          "name": "Frage2",
+          "title": "Instandhaltung nach VDE 0832-100 Tabelle 2, VDE 0832 Reihe, RILSA und Herstellerangaben",
+          "description": "Ansteuerungstyp Außenanlage",
+          "isRequired": true,
+          "choices": [
+            "HV 230V  - 230V Hochvolt Signale",
+            "NV 10/12V  - 10/12V Niedervolt Signale",
+            "LED 230V  - LED 230 Volt Signale",
+            "LED 40V  - LED 40 Volt Signale",
+            "LED 24V 1W - LED 24Volt 1W Signale",
+            "NV 40/42V  - 40/42V Niedervolt Signale",
+            "24V60/60 1   - 24V 60/60W BA20d D=35mm ",
+            "24V60/60 2 - 24V 60/60W BA20d D=35 & 60mm"
+          ]
+        },
+        {
+          "type": "checkbox",
+          "name": "Frage3",
+          "title": "Instandhaltung",
+          "isRequired": true,
+          "choices": [
+            "Reinigen: Steuergerät",
+            "Warten: Schlösser, Verschlüsse ölen, Dichtungen an Schrank und Bediengerät prüfen; ggf. Ersatz"
+          ]
+        },
+        {
+          "type": "checkbox",
+          "name": "Frage4",
+          "title": "Funktionskontrolle allgemein und Kontrolle der Signalgebung",
+          "isRequired": true,
+          "choices": [
+            "Ein- und Ausschalt-Signalisierungszustände",
+            "Ein- und Ausschalt-Signalisierungszustände ab C800",
+            "Alles-Gelb-Zeit nach Störung",
+            "Ein- und Ausschalt-Signalisierungszustände ab C801",
+            "Gelb-Blinken bei abgeschalteter Anlage, nach Vorgabe",
+            "Handschaltung",
+            "Ein- und Ausschalt-Signalisierungszustände ab C802",
+            "Signalprogramm-Umschaltung verkehrsabhängig bzw. von Hand",
+            "Signalprogramm-Umschaltung Zentrale / Funkuhr",
+            "Bediengerät: Tastenfunktion",
+            "Kontroll- und Anzeigelampen",
+            "Schleifen-, Above-Ground-Detektoren",
+            "Sonderfunktionen, z.B. Straßenbahnanforderung, Staumelder",
+            "Bahneingriffe, usw.",
+            "ÖPNV-Komponenten",
+            "Funkuhr, korrekte Auswertung des DCF-Empfangs",
+            "Gelbzeiten gemäß Beschilderung"
+          ]
+        },
+        {
+          "type": "checkbox",
+          "name": "Frage5",
+          "title": "Sicherheitsrelev. Prüfungen/Inspektionen",
+          "isRequired": false,
+          "choices": [
+            "Funktionsprüfung I der Signalsicherungseinrichtung, stichprobenartig",
+            "Notausschalter",
+            "Blindensignalgeber entsprechend Herstellerangaben",
+            "Fußgänger-Anforderungsgeräte"
+          ]
+        },
+        {
+          "type": "text",
+          "name": "Frage6",
+          "title": "FI-Prüfung siehe Elektrische Sicherheitsmaßnahmen",
+          "isRequired": false,
+          "readOnly": true
+        },
+        {
+          "type": "checkbox",
+          "name": "Frage7",
+          "title": "Prüfung Geräteunterl./ örtl. Gegebenheit",
+          "isRequired": true,
+          "choices": [
+            "Geräteunterlagen auf Vollständigkeit und Aktualität",
+            "Signallageplan auf Übereinstimmung mit der SVA, den Verkehrszeichen und der Fahrbahnmarkierungen"
+          ]
+        },
+        {
+          "type": "checkbox",
+          "name": "Frage8",
+          "title": "Außenanlage Überprüfung",
+          "isRequired": true,
+          "choices": [
+            "Im Rahmen des Lampentauschs Reflektoren und Streulinsen reinigen",
+            "LED-Signalgeber: Reinigung der Optik",
+            "Beleuchtete Verkehrszeichen reinigen",
+            "Sichtprüfung: Dichtungen, Fassungen an Signalgeber, Detekt. etc.(ggf. Ersatz)",
+            "Sichtprüfung der Masten, Fundamente, Masttüren, Ausleger",
+            "Signalgeberbefestigungen, Spannseile und dergleichen",
+            "Signalgeber-Ausrichtung und Leuchtwirkung",
+            "Sichtprüfung der Mastverteiler und Schutzleiter(Mastverteiler nach Bedarf erneuern)"
+          ]
+        },
+        {
+          "type": "checkbox",
+          "name": "Frage9",
+          "title": "Elektrische Sicherheitsmaßnahmen",
+          "isRequired": true,
+          "choices": [
+            "Kontrolle der Abdeckung spannungsführender Teile"
+          ]
+        },
+        {
+          "type": "text",
+          "name": "Frage10",
+          "title": "FI - Schutzschaltung",
+          "isRequired": false,
+          "readOnly": true
+        },
+        {
+          "type": "matrixdynamic",
+          "name": "Frage11",
+          "title": "FI-Schalter",
+          "isRequired": true,
+          "columns": [
+            {
+              "name": "1",
+              "title": "FI-Schalter IFN (Wert angeben in mA)",
+              "cellType": "text",
+              "width": "50.00%"
+            },
+            {
+              "name": "2",
+              "title": "Funktionskontrolle des/der Fi-Schalter(s)",
+              "cellType": "dropdown",
+              "width": "50.00%",
+              "choices": [
+                "Löst aus",
+                "Löst nicht aus"
+              ]
+            }
+          ],
+          "allowAddRows": false,
+          "rowCount": 1,
+          "minRowCount": 1
+        },
+        {
+          "type": "text",
+          "name": "Frage12",
+          "title": "(Berührungsspannung < 50 Volt) oder Erdungswiderstand in Ohm",
+          "isRequired": true
+        },
+        {
+          "type": "text",
+          "name": "Frage13",
+          "title": "Berührungsspannung in Volt wenn < 50V",
+          "isRequired": true
+        },
+        {
+          "type": "text",
+          "name": "Frage14",
+          "title": "Erdungswiderstand in Ohm (wenn Berührungsspannung >=50V)",
+          "isRequired": true
+        },
+        {
+          "type": "dropdown",
+          "name": "Frage15",
+          "title": "Messung nur nach Bedarf ! Isolationswiderstand > 1 M Ohm (aktiver Leiter gegen Erde)",
+          "isRequired": true,
+          "choices": [
+            "Wert > 1 M Ohm",
+            "Wert < 1 M Ohm",
+            "Messung nicht notwendig"
+          ]
+        },
+        {
+          "type": "text",
+          "name": "Frage16",
+          "title": "Meßgerätetyp",
+          "isRequired": true
+        },
+        {
+          "type": "matrixdynamic",
+          "name": "Frage17",
+          "title": "Batterietausch",
+          "isRequired": true,
+          "columns": [
+            {
+              "name": "1",
+              "title": "Kontrolle Batterien, gegebenenfalls Austausch nach Herstellerangaben",
+              "cellType": "dropdown",
+              "width": "50.00%",
+              "choices": [
+                "Tausch notwendig",
+                "Tausch nicht notwendig",
+                "Batterie getauscht"
+              ]
+            },
+            {
+              "name": "2",
+              "title": "Datum letzter Batterietausch",
+              "cellType": "date",
+              "width": "50.00%",
+              "datetype": "date"
+            }
+          ],
+          "allowAddRows": false,
+          "rowCount": 1,
+          "minRowCount": 1
+        },
+        {
+          "type": "matrixdynamic",
+          "name": "Frage18",
+          "title": "Isolationswiderstand pro Kabel",
+          "isRequired": true,
+          "columns": [
+            {
+              "name": "1",
+              "title": "Kabel",
+              "cellType": "text",
+              "width": "50.00%"
+            },
+            {
+              "name": "2",
+              "title": " Widerstand (M Ohm)",
+              "cellType": "text",
+              "width": "50.00%"
+            }
+          ],
+          "rowCount": 1,
+          "minRowCount": 1
+        },
+        {
+          "type": "text",
+          "name": "Frage19",
+          "title": "Allgemeines",
+          "isRequired": false,
+          "readOnly": true
+        },
+        {
+          "type": "dropdown",
+          "name": "Frage20",
+          "title": "Festgestellte Beschädigungen oder Mängel",
+          "isRequired": true,
+          "choices": [
+            "Ja",
+            "Nein"
+          ]
+        },
+        {
+          "type": "dropdown",
+          "name": "Frage21",
+          "visibleIf": "{Frage20} = 'Ja'",
+          "title": "ist Sicherheitsrelevant?",
+          "isRequired": false,
+          "requiredIf": "{Frage20} = 'Ja'",
+          "choices": [
+            "Ja",
+            "Nein"
+          ]
+        },
+        {
+          "type": "text",
+          "name": "Frage22",
+          "visibleIf": "{Frage21} = 'Ja'",
+          "title": "Erforderliche Restarbeiten",
+          "isRequired": false,
+          "requiredIf": "{Frage21} = 'Ja'",
+          "inputType": "multiline"
+        },
+        {
+          "type": "dropdown",
+          "name": "Frage23",
+          "title": "Beseitigte Beschädigungen oder Mängel",
+          "isRequired": true,
+          "choices": [
+            "Ja",
+            "Nein"
+          ]
+        },
+        {
+          "type": "text",
+          "name": "Frage24",
+          "visibleIf": "{Frage23} = 'Ja'",
+          "title": "Beseitigte Beschädigungen oder Mängel",
+          "isRequired": false,
+          "requiredIf": "{Frage23} = 'Ja'",
+          "inputType": "multiline"
+        },
+        {
+          "type": "dropdown",
+          "name": "Frage25",
+          "title": "Allgemeiner Zustand der Anlage",
+          "isRequired": true,
+          "choices": [
+            "Sehr gut (keine Mängel, voll funktionsfähig, sauber)",
+            "Gut (nur geringe, nicht sicherheitsrelevante Gebrauchsspuren)",
+            "Befriedigend (leichte Mängel, Funktion nicht beeinträchtigt)",
+            "Ausreichend (deutliche Abnutzung, aber Funktion noch gegeben)",
+            "Mangelhaft (reparaturbedürftig, Funktion eingeschränkt, Mängel können Sicherheit beeinflussen)",
+            "Außer Betrieb / Großmängel (Funktion stark eingeschränkt bzw. nicht mehr gegeben, sofortige Maßnahme erforderlich)"
+          ]
+        },
+        {
+          "type": "text",
+          "name": "Frage26",
+          "visibleIf": "{Frage25} = 'Mangelhaft (reparaturbedürftig, Funktion eingeschränkt, Mängel können Sicherheit beeinflussen)'",
+          "title": "Was beeinflusst die Sicherheit in Kundenverantwortung (z.B. Haltelinie nicht Sichtbar, Sicht auf Signale eingeschränkt,)",
+          "isRequired": true
+        },
+        {
+          "type": "dropdown",
+          "name": "Frage27",
+          "visibleIf": "{Frage25} = 'Außer Betrieb / Großmängel (Funktion stark eingeschränkt bzw. nicht mehr gegeben, sofortige Maßnahme erforderlich)'",
+          "title": "An den Kunden gemeldet",
+          "isRequired": true,
+          "choices": [
+            "JA"
+          ]
+        },
+        {
+          "type": "text",
+          "name": "Frage28",
+          "visibleIf": "{Frage27} = 'JA'",
+          "title": "Weitermeldung an ",
+          "isRequired": true
+        }
+      ]
+    }
+  ]
+}

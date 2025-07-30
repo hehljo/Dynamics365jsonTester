@@ -1,0 +1,201 @@
+{
+  "showQuestionNumbers": "off",
+  "defaultLocale": "1031",
+  "IsRequiredToAnswer": true,
+  "SchemaError": [],
+  "InternalVersion": 1,
+  "title": "IHB 332 / PHT 3 x jährl. 12 mtl.",
+  "description": "332/PHT 3 x jährl. 12 mtl.",
+  "pages": [
+    {
+      "name": "Seite1",
+      "elements": [
+        {
+          "type": "text",
+          "name": "Frage1",
+          "title": "Instandhaltung",
+          "isRequired": false,
+          "readOnly": true
+        },
+        {
+          "type": "matrixdynamic",
+          "name": "Frage2",
+          "title": "Grundausstattung",
+          "isRequired": true,
+          "columns": [
+            {
+              "name": "1",
+              "title": "Anzahl Geräte",
+              "cellType": "text",
+              "width": "33.33%"
+            },
+            {
+              "name": "2",
+              "title": "FI-Schalter Wert",
+              "cellType": "text",
+              "width": "33.33%"
+            },
+            {
+              "name": "3",
+              "title": "Status",
+              "cellType": "dropdown",
+              "width": "33.33%",
+              "choices": [
+                "Erledigt",
+                "nicht Erledigt"
+              ]
+            }
+          ],
+          "allowAddRows": false,
+          "rowCount": 1,
+          "minRowCount": 1
+        },
+        {
+          "type": "matrixdynamic",
+          "name": "Frage3",
+          "title": "Zusatzausstattung",
+          "isRequired": true,
+          "columns": [
+            {
+              "name": "1",
+              "title": "Anzahl Geräte",
+              "cellType": "text",
+              "width": "33.33%"
+            },
+            {
+              "name": "2",
+              "title": "FI-Schalter Wert",
+              "cellType": "text",
+              "width": "33.33%"
+            },
+            {
+              "name": "3",
+              "title": "Status",
+              "cellType": "dropdown",
+              "width": "33.33%",
+              "choices": [
+                "Erledigt",
+                "nicht Erledigt"
+              ]
+            }
+          ],
+          "allowAddRows": false,
+          "rowCount": 1,
+          "minRowCount": 1
+        },
+        {
+          "type": "checkbox",
+          "name": "Frage4",
+          "title": "Elektrische Sicherheitsmaßnahmen",
+          "isRequired": true,
+          "choices": [
+            "Grundprüfung durchgeführt",
+            "Sicherheitsmaßnahmen kontrolliert"
+          ]
+        },
+        {
+          "type": "text",
+          "name": "Frage5",
+          "title": "Bemerkungen zur Instandhaltung",
+          "isRequired": false,
+          "inputType": "multiline"
+        },
+        {
+          "type": "text",
+          "name": "Frage6",
+          "title": "Allgemeines",
+          "isRequired": false,
+          "readOnly": true
+        },
+        {
+          "type": "dropdown",
+          "name": "Frage7",
+          "title": "Festgestellte Beschädigungen oder Mängel",
+          "isRequired": true,
+          "choices": [
+            "Ja",
+            "Nein"
+          ]
+        },
+        {
+          "type": "dropdown",
+          "name": "Frage8",
+          "visibleIf": "{Frage7} = 'Ja'",
+          "title": "ist Sicherheitsrelevant?",
+          "isRequired": false,
+          "requiredIf": "{Frage7} = 'Ja'",
+          "choices": [
+            "Ja",
+            "Nein"
+          ]
+        },
+        {
+          "type": "text",
+          "name": "Frage9",
+          "visibleIf": "{Frage8} = 'Ja'",
+          "title": "Erforderliche Restarbeiten",
+          "isRequired": false,
+          "requiredIf": "{Frage8} = 'Ja'",
+          "inputType": "multiline"
+        },
+        {
+          "type": "dropdown",
+          "name": "Frage10",
+          "title": "Beseitigte Beschädigungen oder Mängel",
+          "isRequired": true,
+          "choices": [
+            "Ja",
+            "Nein"
+          ]
+        },
+        {
+          "type": "text",
+          "name": "Frage11",
+          "visibleIf": "{Frage10} = 'Ja'",
+          "title": "Beseitigte Beschädigungen oder Mängel",
+          "isRequired": false,
+          "requiredIf": "{Frage10} = 'Ja'",
+          "inputType": "multiline"
+        },
+        {
+          "type": "dropdown",
+          "name": "Frage12",
+          "title": "Allgemeiner Zustand der Anlage",
+          "isRequired": true,
+          "choices": [
+            "Sehr gut (keine Mängel, voll funktionsfähig, sauber)",
+            "Gut (nur geringe, nicht sicherheitsrelevante Gebrauchsspuren)",
+            "Befriedigend (leichte Mängel, Funktion nicht beeinträchtigt)",
+            "Ausreichend (deutliche Abnutzung, aber Funktion noch gegeben)",
+            "Mangelhaft (reparaturbedürftig, Funktion eingeschränkt, Mängel können Sicherheit beeinflussen)",
+            "Außer Betrieb / Großmängel (Funktion stark eingeschränkt bzw. nicht mehr gegeben, sofortige Maßnahme erforderlich)"
+          ]
+        },
+        {
+          "type": "text",
+          "name": "Frage13",
+          "visibleIf": "{Frage12} = 'Mangelhaft (reparaturbedürftig, Funktion eingeschränkt, Mängel können Sicherheit beeinflussen)'",
+          "title": "Was beeinflusst die Sicherheit in Kundenverantwortung (z.B. Haltelinie nicht Sichtbar, Sicht auf Signale eingeschränkt,)",
+          "isRequired": true
+        },
+        {
+          "type": "dropdown",
+          "name": "Frage14",
+          "visibleIf": "{Frage12} = 'Außer Betrieb / Großmängel (Funktion stark eingeschränkt bzw. nicht mehr gegeben, sofortige Maßnahme erforderlich)'",
+          "title": "An den Kunden gemeldet",
+          "isRequired": true,
+          "choices": [
+            "JA"
+          ]
+        },
+        {
+          "type": "text",
+          "name": "Frage15",
+          "visibleIf": "{Frage14} = 'JA'",
+          "title": "Weitermeldung an ",
+          "isRequired": true
+        }
+      ]
+    }
+  ]
+}

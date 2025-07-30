@@ -3,8 +3,8 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: 'Dynamics Inspector',
-  description: 'Inspect Microsoft Dynamics 365 templates',
+  title: 'Dynamics Inspection Tester',
+  description: 'Test and validate Microsoft Dynamics 365 inspection templates',
 };
 
 export default function RootLayout({
