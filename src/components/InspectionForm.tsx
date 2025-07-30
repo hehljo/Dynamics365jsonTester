@@ -26,7 +26,7 @@ export default function InspectionForm({ inspectionJson }: InspectionFormProps) 
         "--sjs-secondary-backcolor": "hsl(var(--secondary))",
         "--sjs-secondary-forecolor": "hsl(var(--secondary-foreground))",
         "--sjs-border-default": "hsl(var(--border))",
-        "--sjs-editor-background": "hsl(var(--background))",
+        "--sjs-editor-background": "hsl(var(--card))",
         "--sjs-font-size": "1rem",
         "--sjs-font-family": "Inter, sans-serif"
       },
