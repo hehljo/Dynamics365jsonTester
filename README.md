@@ -2,7 +2,8 @@
 
 Willkommen beim Dynamics Inspector! Dieses webbasierte Werkzeug wurde entwickelt, um das Erstellen und Testen von **Microsoft Dynamics 365 Inspektionsvorlagen** zu vereinfachen. Laden Sie Ihre JSON-Vorlagendateien hoch, um eine interaktive Vorschau des Formulars zu erhalten, die Funktionalität zu testen und die Syntax zu validieren, bevor Sie sie in Ihrer Dynamics 365-Umgebung bereitstellen.
 
-![Dynamics Inspector Screenshot](https://placehold.co/800x450.png?text=App+Screenshot)
+<img width="1023" height="515" alt="image" src="https://github.com/user-attachments/assets/5b05ffd8-1e7c-4c86-a0ef-d79662ca89b5" />
+
 
 ---
 
